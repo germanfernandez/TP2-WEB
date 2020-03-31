@@ -7,11 +7,10 @@
     <body>
         <h1>TURNOS CONSULTORIO MEDICO</h1>
         <form action="Formulario.php" method="POST">
-             
             <fieldset>
                 <legend>Datos Personales</legend>
                 <label for="nombre">Nombre: </label>
-                <input type="text" id="nombre" name="nombre" maxlength="20" placeholder="Ingrese su nombre" required>
+                <input type="text" id="nombre" name="nombre" maxlength="20" pattern=[A-Za-z\s] placeholder="Ingrese su nombre" required>
                 <br><br>
 
                 <label for="email">Email: </label>
@@ -19,7 +18,7 @@
                 <br><br>    
 
                 <label for="tel">Teléfono: </label> 
-                <input type="number" id="tel" name="tel" placeholder="Ingrese su teléfono" required>
+                <input type="number" id="tel" name="tel" pattern=[0-9\+][0-9] placeholder="Ingrese su teléfono" required>
                 <br><br>
 
                 <label for="edad">Edad: </label>
@@ -43,11 +42,12 @@
                         <option value="Castaño">Castaño</option>
                         <option value="Rubio">Rubio</option>
                         <option value="Pelirrojo">Pelirrojo</option>
+                        <option value="Negro">Negro</option>
                     </select>
                 <br><br>
 
-                <label for="diaturno">Fecha de Turno: </label>
-                <input type="date" id="diaturno" name="diaturno" required>
+                <label for="fechaturno">Fecha de Turno: </label>
+                <input type="date" id="fechaturno" name="fechaturno" required>
                 <br><br>
                 
                 <label>Horario del Turno: </label>
