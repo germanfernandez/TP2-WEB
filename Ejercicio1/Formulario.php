@@ -8,7 +8,7 @@
     $altura = $_POST['altura'];
     $nacimiento = $_POST['nacimiento'];
     $cpelo = $_POST['cpelo'];
-    $diaturno = $_POST['diaturno'];
+    $fechaturno = $_POST['fechaturno'];
     $horaturno = $_POST['horaturno'];
 
     echo "<h2>Informacion recibida sobre el turno solicitado</h2>";
@@ -40,7 +40,7 @@
             echo "<p class='error'> * Campo teléfono incompleto </p>";
         }else{
             if(!is_numeric($tel)){
-                echo "<p class='error'> * Solo se permiten números </p>"
+                echo "<p class='error'> * Solo se permiten números </p>";
             }
         }
 
