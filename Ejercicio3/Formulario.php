@@ -1,6 +1,4 @@
-<?php
-
-    
+<?php   
         $nombre = $_GET['nombre'];
         $email = $_GET['email'];
         $tel = $_GET['tel'];
@@ -31,7 +29,6 @@
             echo "<p class='error'> * Campo nombre incompleto </p>";
         }
 
-
         if(empty($email)){
             echo "<p class='error'> * Campo email incompleto </p>";
         }else{
@@ -55,11 +52,8 @@
             echo "<p class='error'> * Campo fecha de turno incompleto </p>";
         }
 
-
         if(($talla<20) || ($talla>45){
             echo "<p class='error'> * La talla debe ser mayor a 20 y menor a 45 </p>";
         }
-    
     } 
-
 ?>

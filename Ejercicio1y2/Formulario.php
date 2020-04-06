@@ -1,6 +1,4 @@
-<?php
-
-    
+<?php 
         $nombre = $_POST['nombre'];
         $email = $_POST['email'];
         $tel = $_POST['tel'];
@@ -24,12 +22,10 @@
         echo "Dia del Turno: " . $fechaturno . "<br/>";
         echo "Horario del Turno: " . $horaturno . "<br/>";
 
-
     if(isset($_POST['submit'])){
         if(empty($nombre)){
             echo "<p class='error'> * Campo nombre incompleto </p>";
         }
-
 
         if(empty($email)){
             echo "<p class='error'> * Campo email incompleto </p>";
@@ -52,12 +48,10 @@
 
         if(empty($fechaturno)){
             echo "<p class='error'> * Campo fecha de turno incompleto </p>";
-    }
-
-
-        if(($talla<20) || ($talla>45){
-            echo "<p class='error'> * La talla debe ser mayor a 20 y menor a 45 </p>";
         }
 
-
+        if(($talla<20) || ($talla>45)){
+            echo "<p class='error'> * La talla debe ser mayor a 20 y menor a 45 </p>";
+        }
+    }
 ?>
