@@ -52,7 +52,7 @@
             echo "<p class='error'> * Campo fecha de turno incompleto </p>";
         }
 
-        if(($talla<20) || ($talla>45){
+        if(($talla<20) || ($talla>45)){
             echo "<p class='error'> * La talla debe ser mayor a 20 y menor a 45 </p>";
         }
     } 
