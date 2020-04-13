@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html> 
     <head>
-        <title>Ejercicio 4 - TP2 - PAW</title>
+        <title>Ejercicio 6 - TP2 - PAW</title>
         <meta charset="UTF-8">
     </head>
     <body>
+        <header>
+            <?php 
+                include 'views/view.header.php'; 
+            ?>
+        </header>
         <h1>TURNOS CONSULTORIO MÉDICO</h1>
         <form action="Formulario.php" method="POST" enctype="multipart/form-data">
             <fieldset>

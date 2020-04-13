@@ -6,6 +6,11 @@
     <title>Tabla Turnos</title>
 </head>
 <body>
+    <header>
+        <?php 
+            include 'views/view.header.php'; 
+        ?>
+    </header>
     <table>
         <thead>
             <tr>
@@ -21,11 +26,14 @@
         <tbody>
             <?php
                 if(file_exists('data/data.json')){
-                    $datos_turno=file_get_contents('data/data.json');
-                    $array_data= json_decode($datos_turno,true);
-                    $cantidad_turnos=sizeof($array_data);
+                    if (filesize('data/data.json') == 0){
+                        echo 'No hay turnos pendientes!';
+                    } else {
+                        $datos_turno=file_get_contents('data/data.json');
+                        $array_data= json_decode($datos_turno,true);
+                        $cantidad_turnos=sizeof($array_data);
 
-                    foreach($array_data as $datos){
+                        foreach($array_data as $datos){
             ?>
                         <tr>
                             <td><?=$datos['fechaturno']?></td>     
@@ -36,17 +44,13 @@
                             <td><a href="#link">Link del turno</td> 
                         </tr>
             <?php
+                        }
                     }
-                 
-                    }else{
-                        echo 'El archivo JSON no existe';
-                    }
-                ?>
-        
+                } else {
+                    echo 'El archivo JSON no existe';
+                }
+            ?>
         </tbody>
     </table>
 </body>
 </html>
-
-
-
