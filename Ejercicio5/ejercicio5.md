@@ -10,7 +10,7 @@ Header ejercicio 3:
 Response Headers
 Connection: Keep-Alive
 Content-Length: 303
-# Content-Type: text/html; charset=UTF-8
+Content-Type: text/html; charset=UTF-8
 Date: Tue, 14 Apr 2020 17:45:45 GMT
 Keep-Alive: timeout=5, max=100
 Server: Apache/2.4.41 (Win64) PHP/7.3.12
@@ -27,7 +27,7 @@ Accept-Language: es-ES,es;q=0.9
 Cache-Control: max-age=0
 Connection: keep-alive
 Content-Length: 5193
-# Content-Type: multipart/form-data; boundary=----WebKitFormBoundarytbzQ2Ygw7kf7NyNG
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundarytbzQ2Ygw7kf7NyNG
 Host: localhost
 Origin: http://localhost
 
