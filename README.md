@@ -25,3 +25,6 @@ Request URL: http://localhost/TP2%20Web/Ejercicio1y2/Formulario.php
 ```
 
 El metodo POST es adecuado utilizarlo en formularios o en situaciones donde no queramos que los datos enviados sean visibles, a diferencia de GET que es preferible utilizarlo cuando no tengamos que enviar información relevante como por ejemplo, contraseñas o tarjetas de credito.
+
+## Punto 4
+Si dos usuarios cargan imágenes cuyo nombre es el mismo lo que sucederá es que estas van a sobrescribirse y solo quedará guardada la imagen que se cargó recientemente. Para evitar que esto ocurra implementamos un mecanismo en el cuual el nombre de las imágenes se genera a partir de la concatenación del nombre de la imagen más la fecha y hora del turno del paciente.
