@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html> 
     <head>
-        <title>Ejercicio 6 - TP2 - PAW</title>
+        <title>Sistema de Turnos - Nuevo Turno</title>
         <meta charset="UTF-8">
     </head>
     <body>
