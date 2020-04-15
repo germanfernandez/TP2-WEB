@@ -11,6 +11,10 @@
         $cpelo = $_POST['cpelo'];
         $fechaturno = $_POST['fechaturno'];
         $horaturno = $_POST['horaturno'];
+    
+        $fturno=strtotime($fechaturno);
+        $fechaactual= strtotime(date("d-m-Y H:i:00",time()));
+
 
         $extensiones = array(0=>'image/jpeg',1=>'image/png');
 
@@ -26,9 +30,16 @@
         echo "Dia del Turno: " . $fechaturno . "<br/>";
         echo "Horario del Turno: " . $horaturno . "<br/><br/>";
 
+        
+
         if(isset($_POST['submit'])){
+            
                 if(empty($nombre)){
                     echo "<p class='error'> * Campo nombre incompleto </p>";
+                }else{
+                    if(!preg_match("/^[a-zA-Z ]*$/",$nombre)){
+                        echo "<p class='error'> * El nombre solo debe contener letras</p>";
+                    }
                 }
             
                 if(empty($email)){
@@ -46,17 +57,42 @@
                     }
                 }
             
+                if(empty($horaturno)){
+                    echo "<p class='error'> * Campo horario de Turno incompleto </p>";
+                }elseif((!preg_match("/^(0[8-9]|1[0-6]):(00|15|30|45)$/",$horaturno)) &&
+                         (!preg_match("/^(17):(00)$/",$horaturno))){
+                    echo "<p class='error'> * Turno no válido </p>";
+                }
+                
+                
+
                 if(empty($nacimiento)){
                     echo "<p class='error'> * Campo fecha de nacimiento incompleto </p>";
                 }
             
                 if(empty($fechaturno)){
                     echo "<p class='error'> * Campo fecha de turno incompleto </p>";
+                }else{
+                    if($fturno<$fechaactual){
+                        echo "<p class='error'> * La fecha del turno debe ser mayor o igual a la actual</p>";
+                    }
                 }
             
                 if(($talla<20) || ($talla>45)){
                     echo "<p class='error'> * La talla debe ser mayor a 20 y menor a 45 </p>";
                 }
+
+
+                if(($cpelo !="Castaño") &&
+                ($cpelo !="Rubio") &&
+                ($cpelo !="Pelirrojo") &&
+                ($cpelo !="Negro")){
+
+                    echo "<p class='error'> * Color de prlo incorrecto </p>";
+                }
+
+
+
 
                 if(in_array($_FILES['diagnostico']['type'],$extensiones)){
 
@@ -80,6 +116,6 @@
                     echo "<p class='error'> * La imagen tiene que ser formato jpg o png </p>";
                  } 
                
-            }
+        }
 
 ?>
