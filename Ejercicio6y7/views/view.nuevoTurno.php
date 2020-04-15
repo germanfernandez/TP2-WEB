@@ -10,13 +10,14 @@
                 include 'views/view.header.php'; 
             ?>
         </header>
+
         <h1>TURNOS CONSULTORIO MÉDICO</h1>
-        <form action="Formulario.php" method="POST" enctype="multipart/form-data">
+        <form action="/turno_reservado" method="POST" enctype="multipart/form-data">
             <fieldset>
                 <legend>Datos Personales</legend>
                 <label for="nombre">Nombre: </label>
                 <input type="text" id="nombre" name="nombre" maxlength="20" pattern=[a-z]{1,20} placeholder="Ingrese su nombre"  required>
-                *
+                * 
                 <br><br>
 
                 <label for="email">Email: </label>
@@ -78,6 +79,7 @@
 
             </fieldset>
         </form>
-            
+        
+        
     </body>
 </html>
