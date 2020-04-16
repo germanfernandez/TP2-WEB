@@ -17,8 +17,7 @@ class Turno
         $this->$cpelo = $extra['cpelo'];
         $this->$fechaTurno = $extra['fechaturno'];
         $this->$horaTurno = $extra['horaturno'];
-
-        //TODO: Ver imagen?
+        
         $this->$extensiones = $extensiones;
         $this->$nombreImagen = $nombreArchivo;
     }

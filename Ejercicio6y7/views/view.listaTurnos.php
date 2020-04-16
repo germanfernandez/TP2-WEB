@@ -41,7 +41,7 @@
                             <td><?=$datos['nombre']?></td>
                             <td><?=$datos['tel']?></td>
                             <td><?=$datos['email']?></td>
-                            <td><a href="#link">Link del turno</td> 
+                            <td><a href=<?= "/turno?id=" . $datos['numeroTurno'] ?>>Link del turno</td> 
                         </tr>
             <?php
                         }

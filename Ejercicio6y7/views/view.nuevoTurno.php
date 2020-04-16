@@ -16,7 +16,7 @@
             <fieldset>
                 <legend>Datos Personales</legend>
                 <label for="nombre">Nombre: </label>
-                <input type="text" id="nombre" name="nombre" maxlength="20" pattern=[a-z]{1,20} placeholder="Ingrese su nombre"  required>
+                <input type="text" id="nombre" name="nombre" maxlength="50" pattern=[a-zA-ZÀ-ž\s]]{1,50} placeholder="Ingrese su nombre"  required>
                 * 
                 <br><br>
 

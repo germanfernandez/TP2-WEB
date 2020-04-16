@@ -15,8 +15,13 @@ class NuevoTurnoController {
         if(file_exists('data/data.json')){
             $datos_turno=file_get_contents('data/data.json');
             $array_data= json_decode($datos_turno,true);
-            $numeroTurno= count($array_data) + 1;
             
+            if(filesize('data/data.json') == 0) {
+                $numeroTurno = 1;
+            } else {
+                $numeroTurno= count($array_data) + 1;
+            }
+
             $extra= array(
                 'numeroTurno'=> $numeroTurno,
                 'nombre'=> $_POST['nombre'],
@@ -40,7 +45,7 @@ class NuevoTurnoController {
             if($chequeo == true) {
                 if(empty($extra['nombre'])){
                     $chequeo = false; 
-                } elseif (!preg_match('/^[a-zA-Z0-9\s]+$/', $extra['nombre'])) {
+                } elseif (!preg_match('/^[a-zA-ZÀ-ž\s]+$/', $extra['nombre'])) {
                     $chequeo = false;
                 }
                 
@@ -65,7 +70,6 @@ class NuevoTurnoController {
                 }
 
                 if(empty($extra['talla'])) {
-                    $chequeo = false;
                 } elseif (!is_numeric($extra['talla'])){
                     $chequeo = false;
                 } elseif (($extra['talla']<20) || ($extra['talla']>45)){
@@ -82,23 +86,29 @@ class NuevoTurnoController {
                  
                    $extensionArchivo = substr($_FILES['diagnostico']['name'],strlen($_FILES['diagnostico']['name'])-4,strlen($_FILES['diagnostico']['name']));
                    $horaNueva = str_replace(':','-',$extra['horaturno']);
+                   
+                   
                    //uso el nombre del paciente, la fecha del turno y la hora para no reemplazar una foto con el mismo nombre
-                   $nombreArchivo = $extra['nombre'].'-'.$extra['fechaturno'].'-'.$horaNueva.$extensionArchivo;
+                   
+                   //Reemplazar los espacios en el nombre por guiones
+                   $nombreLimpio = preg_replace('/\s+/', '-', $extra['nombre']);
+                   
+                   $nombreArchivo = $nombreLimpio.'-'.$extra['fechaturno'].'-'.$horaNueva.$extensionArchivo;
                    $ruta_nueva = $indexphp . '\\Diagnosticos\\' . $nombreArchivo; 
                    if (move_uploaded_file($ruta_origen,$ruta_nueva)){ 
-                           //Muestro imagen
-                           //echo "<img src='Diagnosticos/".$nombreArchivo."'>";
+                           $dirImagen = './Diagnosticos/'.$nombreArchivo;
                    }
                 }else{
-                   //No hay archivo
+                   $nombreArchivo = "";
+                   $dirImagen = "";
                 } 
             
                 $turno = new Turno($extra, $extensiones, $nombreArchivo);
                 if(file_put_contents('data/data.json',$datos_finales)){
-                    include "views/view.turnoReservado.php";
+                    include "views/view.fichaTurno.php";
                 }
             } else {
-                //Datos no válidos
+                echo 'Campos erroneos';
             }           
    
         }else{

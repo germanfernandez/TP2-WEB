@@ -17,6 +17,7 @@ $router->define([
     'GET /nuevo_turno' => 'NuevoTurnoController@new',
     'GET /lista_de_turnos' => 'ListaTurnosController@new',
     'POST /turno_reservado' => 'NuevoTurnoController@save',
+    'GET /turno' => 'ListaTurnosController@view'
 ]);
 
 $request = new Request;
