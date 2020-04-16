@@ -62,8 +62,8 @@
                 if((!is_numeric($edad)){
                     echo "<p> *La edad debe ser numérica </p>"
                 }else{
-                    if(($edad<0) || ($edad>105)){
-                        echo "<p class='error'> * La edad debe ser mayor a 0 y menor a 105 </p>";
+                    if(($edad<1) || ($edad>105)){
+                        echo "<p class='error'> * La edad debe ser mayor a 1 y menor a 105 </p>";
                     }
                 }
 
@@ -105,8 +105,8 @@
                 if((!is_numeric($altura)){
                     echo "<p> *La altura debe ser numérica </p>"
                 }else{
-                    if(($altura<0.5) || ($altura>2.5)){
-                        echo "<p class='error'> * La altura debe ser mayor a 0.5 y menor a 2.5 </p>";
+                    if(($altura<0.5) || ($altura>2)){
+                        echo "<p class='error'> * La altura debe ser mayor a 0.5 y menor a 2 </p>";
                     }
                 }    
                     
