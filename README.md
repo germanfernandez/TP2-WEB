@@ -26,6 +26,8 @@ Request URL: http://localhost/TP2%20Web/Ejercicio1y2/Formulario.php
 
 El metodo POST es adecuado utilizarlo en formularios o en situaciones donde no queramos que los datos enviados sean visibles, a diferencia de GET que es preferible utilizarlo cuando no tengamos que enviar información relevante como por ejemplo, contraseñas o tarjetas de credito.
 
+**Comentario**: La información que viaja en el cuerpo de una petición POST **si** que es visible cuando esta en transito (alcanza con hacer una captura con wireshark para ver los datos). Lo que si es cierto es que ninguno de los extremos, y tampoco sistemas intermedios (p.e. Proxys), hacen cache del cuerpo de las peticiones, como si sucede con algunas partes del header (como por ejemplo el path).
+
 ## Punto 4
 Si dos usuarios cargan imágenes cuyo nombre es el mismo lo que sucederá es que estas van a sobrescribirse y solo quedará guardada la imagen que se cargó recientemente. Para evitar que esto ocurra implementamos un mecanismo en el cuual el nombre de las imágenes se genera a partir de la concatenación del nombre de la imagen más la fecha y hora del turno del paciente.
 
