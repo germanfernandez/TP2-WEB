@@ -6,7 +6,7 @@
     </head>
     <body>
         <h1>TURNOS CONSULTORIO MÉDICO</h1>
-        <form action="Formulario.php" method="POST" >
+        <form action="/save_turno" method="POST" >
             <fieldset>
                 <section>
                     <legend>Datos Personales</legend>
@@ -47,12 +47,10 @@
 
                     <label for="cpelo">Color de Pelo: </label>
                         <select id="cpelo" name="cpelo">
-                            <option value="Castaño">Castaño</option>
-                            <option value="Rubio">Rubio</option>
-                            <option value="Pelirrojo">Pelirrojo</option>
-                            <option value="Negro">Negro</option>
+                            <?php foreach ($colores_de_pelo as $color_pelo_key => $color_pelo_valor) : ?>
+                                <option value="<?= $color_pelo_key ?>"><?= $color_pelo_valor ?></option>
+                            <?php endforeach ?>
                         </select>
-
 
                     <label for="fechaturno">Fecha de Turno: </label>
                     <input type="date" id="fechaturno" name="fechaturno" min="2020-01-01" required>

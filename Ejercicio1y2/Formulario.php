@@ -1,6 +1,6 @@
 <?php
 
-    
+
         $nombre = $_POST['nombre'];
         $email = $_POST['email'];
         $tel = $_POST['tel'];
@@ -11,7 +11,7 @@
         $cpelo = $_POST['cpelo'];
         $fechaturno = $_POST['fechaturno'];
         $horaturno = $_POST['horaturno'];
-    
+
         $fturno=strtotime($fechaturno);
         $fnacimiento=strtotime($nacimiento);
         $fechaactual= strtotime(date("d-m-Y H:i:00",time()));
@@ -29,10 +29,10 @@
         echo "Dia del Turno: " . $fechaturno . "<br/>";
         echo "Horario del Turno: " . $horaturno . "<br/><br/>";
 
-        
+
 
         if(isset($_POST['submit'])){
-            
+
             if(empty($nombre)){
                 echo "<p class='error'> * Campo nombre incompleto </p>";
             }else{
@@ -40,14 +40,14 @@
                     echo "<p class='error'> * El nombre solo debe contener letras</p>";
                 }
             }
-        
+
             if(empty($email)){
                 echo "<p class='error'> * Campo email incompleto </p>";
             }else{
                 if(!filter_var($email, FILTER_VALIDATE_EMAIL))
                 echo "<p class='error'> * Email incorrecto </p>";
             }
-        
+
 
             if(empty($tel)){
                 echo "<p class='error'> * Campo teléfono incompleto </p>";
@@ -56,7 +56,7 @@
                     echo "<p class='error'> * Solo se permiten números </p>";
                 }
             }
-        
+
             if((!is_numeric($edad))){
                 echo "<p  class='error'> *La edad debe ser numérica </p>";
             }else{
@@ -70,18 +70,18 @@
                      (!preg_match("/^(17):(00)$/",$horaturno))){
                 echo "<p class='error'> * Turno no válido </p>";
             }
-            
-            
+
+
             if(empty($nacimiento)){
                 echo "<p class='error'> * Campo fecha de nacimiento incompleto </p>";
             }elseif(!preg_match("/^([0-9][0-9][0-9][0-9])-(0[0-9]|1[0-2])-([0-2][0-9]|3[0-1])$/",$nacimiento)){
                     echo "<p class='error'> * Formato de fecha inválida </p>";
-            
+
             }elseif($fnacimiento>$fechaactual){
                     echo "<p class='error'> * ERROR! Fecha de nacimiento incorrecta</p>";
             }
-            
-        
+
+
 
 
 
@@ -89,21 +89,21 @@
                 echo "<p class='error'> * Campo fecha de turno incompleto </p>";
             }elseif(!preg_match("/^([0-9][0-9][0-9][0-9])-(0[0-9]|1[0-2])-([0-2][0-9]|3[0-1])$/",$nacimiento)){
                     echo "<p class='error'> * Formato de fecha inválida </p>";
-                
+
             }elseif($fturno<$fechaactual){
                     echo "<p class='error'> * La fecha del turno debe ser mayor o igual a la actual</p>";
             }
-            
-        
+
+
 
             if((!is_numeric($altura))){
                 echo "<p> *La altura debe ser numérica </p>";
             }elseif(($altura<0.5) || ($altura>2)){
                     echo "<p class='error'> * La altura debe ser mayor a 0.5 y menor a 2 </p>";
                 }
-                
-                
-            
+
+
+
             if((!is_numeric($talla))){
                 echo "<p> *La altura debe ser numérica </p>";
             }else{
@@ -111,20 +111,9 @@
                 if(($talla<20) || ($talla>45)){
                     echo "<p class='error'> * La talla debe ser mayor a 20 y menor a 45 </p>";
                 }
-            } 
-
-
-            if(($cpelo !="Castaño") &&
-            ($cpelo !="Rubio") &&
-            ($cpelo !="Pelirrojo") &&
-            ($cpelo !="Negro")){
-
-                echo "<p class='error'> * Color de prlo incorrecto </p>";
             }
 
-
-
-               
+            if(!array_key_exists($cpelo, $colores_de_pelo)) {
+                echo "<p class='error'> * Color de pelo incorrecto </p>";
+            }
         }
-
-?>
