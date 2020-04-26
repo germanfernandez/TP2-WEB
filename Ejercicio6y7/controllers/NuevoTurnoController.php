@@ -84,9 +84,20 @@ class NuevoTurnoController {
                    $indexphp = dirname(realpath(__FILE__), 2);
                    $ruta_origen = $_FILES['diagnostico']['tmp_name'];
 
+                    // Esto es innecesario, ya que el tipo viene en
+                   //   $_FILES['type'] y se puede armar un array de mapeo
+                   //   [
+                   //       'image/jpg' => 'jpg'
+                    //  ]
+                   // O tambien una funcion que sea get_extension_from_type que haga
+                   //   explode de dicha extension a partir del tipo.
                    $extensionArchivo = substr($_FILES['diagnostico']['name'],strlen($_FILES['diagnostico']['name'])-4,strlen($_FILES['diagnostico']['name']));
                    $horaNueva = str_replace(':','-',$extra['horaturno']);
 
+
+                   // Todo lo que sigue puede ser reemaplzado por una llamada
+                   //   a la funcion uniqid, y un while(file_exist...
+                   //   para controlar colisiones.
 
                    //uso el nombre del paciente, la fecha del turno y la hora para no reemplazar una foto con el mismo nombre
 
