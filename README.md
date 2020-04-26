@@ -26,8 +26,12 @@ Request URL: http://localhost/TP2%20Web/Ejercicio1y2/Formulario.php
 
 El metodo POST es adecuado utilizarlo en formularios o en situaciones donde no queramos que los datos enviados sean visibles, a diferencia de GET que es preferible utilizarlo cuando no tengamos que enviar información relevante como por ejemplo, contraseñas o tarjetas de credito.
 
+**Comentario**: La información que viaja en el cuerpo de una petición POST **si** que es visible cuando esta en transito (alcanza con hacer una captura con wireshark para ver los datos). Lo que si es cierto es que ninguno de los extremos, y tampoco sistemas intermedios (p.e. Proxys), hacen cache del cuerpo de las peticiones, como si sucede con algunas partes del header (como por ejemplo el path).
+
 ## Punto 4
 Si dos usuarios cargan imágenes cuyo nombre es el mismo lo que sucederá es que estas van a sobrescribirse y solo quedará guardada la imagen que se cargó recientemente. Para evitar que esto ocurra implementamos un mecanismo en el cuual el nombre de las imágenes se genera a partir de la concatenación del nombre de la imagen más la fecha y hora del turno del paciente.
+
+**Comentario**: Esta solución no es robusta. Los sistemas web por definición son multi usuarios y concurrentes. Esto significa que sin que el programador lo controle, el sistema podrá correr eventualmente en paralelo (es algo que hace de forma transparente el web server). Ninguna solución que tenga por hipótesis que un timestamp será único puede ser robusta en el largo plazo. Si al menos hubieran utilizado `file_exists` y tomado una decisión en caso de colisión, podría ser considerada como resuelta, pero así como esta, tiene un potencial bug de pisado de información de usuario por otro. Agreguen algún control respecto de colisión de nombre y algún esquema que resuelva esto (son 3 lineas de código a lo que ya tienen hecho).
 
 ## Punto 6
 ### ¿Cómo relaciona la imagen del turno con los datos del turno? Comente alternativas que evaluó y opción elegida.
