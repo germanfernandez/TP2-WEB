@@ -1,5 +1,6 @@
 <?php
-    include 'setup.php';
+
+    include('setup.php');
 
     try{
         $router->direct($request);

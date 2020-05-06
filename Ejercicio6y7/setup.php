@@ -7,7 +7,6 @@ include 'controllers/TurnosController.php';
 include 'controllers/NuevoTurnoController.php';
 include 'controllers/ListaTurnosController.php';
 
-
 use App\core\Router;
 use App\core\Request;
 
@@ -21,3 +20,12 @@ $router->define([
 ]);
 
 $request = new Request;
+
+$colores_de_pelo = [
+    "castaño" => "Castaño",
+    "rubio" => "Rubio",
+    "pelirrojo" => "Pelirrojo",
+    "negro" => "Negro"
+];
+
+?>
